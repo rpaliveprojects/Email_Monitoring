@@ -1,6 +1,6 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ReadConfig" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="Out_dtSupport" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_dt_Support" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -114,7 +114,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="ReadSupportFile Start Time" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Start&quot;+&quot;ReadSupportFile&quot;+Now.ToString]" />
     <ui:LogMessage DisplayName="Reading SheetName" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading&quot;+SheetName]" />
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[Out_dtSupport]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[SheetName]" WorkbookPath="[SupportFilePath]" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_dt_Support]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[SheetName]" WorkbookPath="[SupportFilePath]" />
     <ui:LogMessage DisplayName="Reading SheetName Successfull" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading&quot;+SheetName+&quot;Successfull&quot;]" />
     <ui:LogMessage DisplayName="ReadSupportFile End Time" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;End&quot;+&quot;ReadSupportFile&quot;+Now.ToString]" />
   </Sequence>

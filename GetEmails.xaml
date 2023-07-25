@@ -1,13 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetEmails" this:GetEmails.In_dictConfig="[New Dictionary(Of String, Object) From {{&quot;MailFolder&quot;, &quot;Inbox&quot;},{&quot;Server&quot;, &quot;imap.gmail.com&quot;}, {&quot;GmailAccount&quot;, &quot;GmailAccount&quot;},{&quot;OrchestratorAssetFolder&quot;,&quot;Shared&quot;},{&quot;Subject1&quot;,&quot;IACET Project&quot;},{&quot;Subject2&quot;,&quot;ABC Project&quot;},{&quot;Subject3&quot;,&quot;Example Project&quot;},{&quot;MailFolder1&quot;,&quot;IACET Project&quot;},{&quot;MailFolder2&quot;,&quot;ABC Project&quot;},{&quot;MailFolder3&quot;,&quot;Example Project&quot;}}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetEmails" this:GetEmails.in_dictConfig="[New Dictionary(Of String, Object) From {{&quot;MailFolder&quot;, &quot;Inbox&quot;},{&quot;Server&quot;, &quot;imap.gmail.com&quot;}, {&quot;GmailAccount&quot;, &quot;GmailAccount&quot;},{&quot;OrchestratorAssetFolder&quot;,&quot;Shared&quot;},{&quot;Subject1&quot;,&quot;IACET Project&quot;},{&quot;Subject2&quot;,&quot;ABC Project&quot;},{&quot;Subject3&quot;,&quot;Example Project&quot;},{&quot;MailFolder1&quot;,&quot;IACET Project&quot;},{&quot;MailFolder2&quot;,&quot;ABC Project&quot;},{&quot;MailFolder3&quot;,&quot;Example Project&quot;}}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="In_dictConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="In_dtSupport" Type="InArgument(sd:DataTable)" />
     <x:Property Name="BreakTriggerScopeInArgument" Type="InArgument(x:String)" />
+    <x:Property Name="in_dictConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_dt_Support" Type="InArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>440,2156.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>614,2965.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetEmails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -113,7 +113,7 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow will read emails, check their Subject and move them to their respective filders." DisplayName="GetEmails" sap:VirtualizedContainerService.HintSize="450,2092" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow will read emails, check their Subject and move them to their respective filders." DisplayName="GetEmails" sap:VirtualizedContainerService.HintSize="624,2900.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strUsername" />
       <Variable x:TypeArguments="ss:SecureString" Name="ssPassword" />
@@ -129,9 +129,9 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="GetEmails Start Time" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Start&quot;+&quot;GetEmails&quot;+Now.ToString]" />
-    <ui:LogMessage DisplayName="Getting Credentials" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Getting Credentials&quot;]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get Gmail UserID and pwd" AssetName="[In_dictConfig(&quot;GmailAccount&quot;).ToString]" CacheStrategy="None" DisplayName="Get Gmail Credential" FolderPath="[In_dictConfig(&quot;OrchestratorAssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="388,175.33333333333334" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ssPassword]" Username="[strUsername]">
+    <ui:LogMessage DisplayName="GetEmails Start Time" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Start&quot;+&quot;GetEmails&quot;+Now.ToString]" />
+    <ui:LogMessage DisplayName="Getting Credentials" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Getting Credentials&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get Gmail UserID and pwd" AssetName="[In_dictConfig(&quot;GmailAccount&quot;).ToString]" CacheStrategy="None" DisplayName="Get Gmail Credential" FolderPath="[In_dictConfig(&quot;OrchestratorAssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="562,175.33333333333334" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ssPassword]" Username="[strUsername]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -140,9 +140,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotCredential>
-    <ui:LogMessage DisplayName="Credentials Retreived" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Credentials retrieved Successfully&quot;]" />
-    <ui:LogMessage DisplayName="Reading Emails" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading Emails Started&quot;]" />
-    <ui:RetryScope DisplayName="Retry Get IMAP Mail Message" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="RetryScope_1">
+    <ui:LogMessage DisplayName="Credentials Retreived" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Credentials retrieved Successfully&quot;]" />
+    <ui:LogMessage DisplayName="Reading Emails" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading Emails Started&quot;]" />
+    <ui:RetryScope DisplayName="Retry Get IMAP Mail Message" sap:VirtualizedContainerService.HintSize="562,54" sap2010:WorkflowViewState.IdRef="RetryScope_1">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>
           <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="596.6666666666666,642" sap2010:WorkflowViewState.IdRef="Sequence_19">
@@ -226,9 +226,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:RetryScope>
-    <ui:LogMessage DisplayName="Reading Emails Successfull" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading Emails Ended&quot;]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Moving Email Started&quot;]" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="This loop will compare the subject of each email with subjects in support file and move emails to their respective folders" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="388,149.33333333333334" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[listMailMessage]">
+    <ui:LogMessage DisplayName="Reading Emails Successfull" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading Emails Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Moving Email Started&quot;]" />
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="This loop will compare the subject of each email with subjects in support file and move emails to their respective folders" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,972.6666666666666" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[listMailMessage]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
@@ -240,7 +240,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[RowNumber&lt;=In_dtSupport.RowCount-1]" DisplayName="While" sap:VirtualizedContainerService.HintSize="486,650" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[RowNumber&lt;=in_dt_Support.RowCount-1]" DisplayName="While" sap:VirtualizedContainerService.HintSize="486,650" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
               <ui:InterruptibleWhile.Body>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452,512" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
@@ -248,11 +248,10 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[currentItem.Subject=In_dtSupport.Rows(RowNumber)(ColumnNumber).ToString]" sap:VirtualizedContainerService.HintSize="410,424.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If Condition="[currentItem.Subject=in_dt_Support.Rows(RowNumber)(ColumnNumber).ToString]" sap:VirtualizedContainerService.HintSize="410,424.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
                     <If.Then>
                       <Sequence sap:VirtualizedContainerService.HintSize="376,240.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_15">
                         <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="Co" />
                           <Variable x:TypeArguments="x:Int32" Default="1" Name="FolderNumber" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
@@ -260,7 +259,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[strUsername]" EnableSSL="True" FromFolder="[In_dictConfig(&quot;MailFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_5" IgnoreCRL="False" MailFolder="[In_dtSupport.Rows(RowNumber)(FolderNumber).ToString]" MailMessage="[currentItem]" Port="[CInt(In_dictConfig(&quot;Port&quot;))]" SecureConnection="Auto" SecurePassword="[ssPassword]" Server="[In_dictConfig(&quot;Server&quot;).ToString]" />
+                        <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[strUsername]" EnableSSL="True" FromFolder="[In_dictConfig(&quot;MailFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_5" IgnoreCRL="False" MailFolder="[in_dt_Support.Rows(RowNumber)(FolderNumber).ToString]" MailMessage="[currentItem]" Port="[CInt(In_dictConfig(&quot;Port&quot;))]" SecureConnection="Auto" SecurePassword="[ssPassword]" Server="[In_dictConfig(&quot;Server&quot;).ToString]" />
                         <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_1" />
                       </Sequence>
                     </If.Then>
@@ -296,13 +295,13 @@
       </ui:ForEach.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Moving Email Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Moving Email Ended&quot;]" />
     <ui:LogMessage DisplayName="GetEmails End Time" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;End&quot;+&quot;GetEmails&quot;+Now.ToString]" />
   </Sequence>
 </Activity>
