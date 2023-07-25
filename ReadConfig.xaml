@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>486,1200</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>575.3333333333334,2329.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ReadConfig_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -98,7 +98,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow willl read the configuration file and store the value in a Argument" DisplayName="ReadConfig" sap:VirtualizedContainerService.HintSize="496,1135.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow willl read the configuration file and store the value in a Argument" DisplayName="ReadConfig" sap:VirtualizedContainerService.HintSize="648,2573.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Default="[{&quot;Settings&quot;,&quot;Constants&quot;,&quot;Assets&quot;}]" Name="arSheetNames" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtDataTable" />
@@ -111,8 +111,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="ReadConfig Start Time" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Start&quot;+&quot;ReadConfig&quot;+Now.ToString]" />
-    <Assign sap2010:Annotation.AnnotationText="Initializing Config Dictionary" DisplayName="Init Dictionary" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <ui:LogMessage DisplayName="ReadConfig Start Time" sap:VirtualizedContainerService.HintSize="586,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Start&quot;+&quot;ReadConfig&quot;+Now.ToString]" />
+    <Assign sap2010:Annotation.AnnotationText="Initializing Config Dictionary" DisplayName="Init Dictionary" sap:VirtualizedContainerService.HintSize="586,116" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[out_dictConfig]</OutArgument>
       </Assign.To>
@@ -125,14 +125,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading each sheet Started&quot;]" />
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Reding each sheet from array SheetNames " DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,99.33333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[arSheetNames]">
+    <ui:LogMessage DisplayName="Reading each sheet Started" sap:VirtualizedContainerService.HintSize="586,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading each sheet Started&quot;]" />
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Reading each sheet from array SheetNames " DisplayName="For Each-Reading each sheet from array SheetNames " sap:VirtualizedContainerService.HintSize="586,1537.3333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[arSheetNames]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,1008" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1316.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="variable1" />
             </Sequence.Variables>
@@ -141,11 +141,11 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading&quot;+currentItem]" />
-            <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtDataTable]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[currentItem]" WorkbookPath="[ConfigFilePath]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading&quot;+currentItem+&quot;Successfull&quot;]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Store Values for &quot;+currentItem+ &quot; In a dictionary Started&quot;]" />
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:LogMessage DisplayName="Reading currentItem" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading&quot;+currentItem]" />
+            <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtDataTable]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="510,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[currentItem]" WorkbookPath="[ConfigFilePath]" />
+            <ui:LogMessage DisplayName="Reading currentItem Successfull" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading&quot;+currentItem+&quot;Successfull&quot;]" />
+            <ui:LogMessage DisplayName="Storing Values in Dictionary" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Store Values for &quot;+currentItem+ &quot; In a dictionary Started&quot;]" />
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="510,362.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
@@ -157,7 +157,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign DisplayName="Assign- Values to Dictionary" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Object">[out_dictConfig(CurrentRow("Name").ToString)]</OutArgument>
                       </Assign.To>
@@ -170,24 +170,24 @@
               </ui:ForEachRow.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEachRow>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Store Values for &quot;+currentItem+ &quot; In a dictionary Successfull&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Store Values for &quot;+currentItem+ &quot; In a dictionary Successfull&quot;]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading each sheet Successfull&quot;]" />
-    <ui:LogMessage DisplayName="ReadConfig End Time" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;End&quot;+&quot;ReadConfig&quot;+Now.ToString]" />
+    <ui:LogMessage DisplayName="Reading each sheet Successfull" sap:VirtualizedContainerService.HintSize="586,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading each sheet Successfull&quot;]" />
+    <ui:LogMessage DisplayName="ReadConfig End Time" sap:VirtualizedContainerService.HintSize="586,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;End&quot;+&quot;ReadConfig&quot;+Now.ToString]" />
   </Sequence>
 </Activity>

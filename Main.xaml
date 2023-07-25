@@ -84,7 +84,7 @@
   <Sequence sap:VirtualizedContainerService.HintSize="450,1644.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dictConfig" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtSupport" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Support" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -101,7 +101,7 @@
     <ui:LogMessage DisplayName="ReadSupport started" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;ReadSupport started&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadSupportFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ReadSupportFile.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_dtSupport">[dtSupport]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_dtSupport">[dt_Support]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="ReadSupport completed" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;ReadSupport completed&quot;]" />
@@ -109,7 +109,7 @@
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEmails.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="GetEmails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="In_dictConfig">[dictConfig]</InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="In_dtSupport">[dtSupport]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="In_dtSupport">[dt_Support]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
