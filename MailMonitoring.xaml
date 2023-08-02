@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>648,1117</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>648,1551</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>MailMonitoring_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -93,7 +93,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MailMonitoring" sap:VirtualizedContainerService.HintSize="572,1052" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MailMonitoring" sap:VirtualizedContainerService.HintSize="624,1486" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="ReadMails" />
       <Variable x:TypeArguments="x:Boolean" Name="IsSubjectExist" />
@@ -104,14 +104,14 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[In_dicConfig(&quot;ClientEmail&quot;).ToString]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="510,25" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[In_dicConfig(&quot;MailFolder&quot;).ToString]" MarkAsRead="False" Messages="[ReadMails]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="[CInt(In_dicConfig(&quot;TopEmail&quot;))]" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each- Read Mails" sap:VirtualizedContainerService.HintSize="562,1336" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ReadMails]">
+    <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[In_dicConfig(&quot;ClientEmail&quot;).ToString]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="562,25" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[In_dicConfig(&quot;MailFolder&quot;).ToString]" MarkAsRead="False" Messages="[ReadMails]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="[CInt(In_dicConfig(&quot;TopEmail&quot;))]" />
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each- Read Mails" sap:VirtualizedContainerService.HintSize="562,1310" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ReadMails]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="currentItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="528,1150" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="528,1124" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -125,15 +125,7 @@
                 <InArgument x:TypeArguments="x:Boolean">[currentItem.Subject.Contains(In_dicConfig("Sujbect").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Attachment" sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_2">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Boolean">[IsAttachmentExist]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Boolean">[currentItem.Attachments.Any]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <If Condition="[IsAttachmentExist  AND IsSubjectExist]" sap:VirtualizedContainerService.HintSize="486,818" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[IsSubjectExist]" sap:VirtualizedContainerService.HintSize="486,914" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -141,12 +133,13 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="376,176" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
+                  <ui:MoveOutlookMessage Account="[In_dicConfig(&quot;ClientEmail&quot;).ToString]" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1" MailFolder="[In_dicConfig(&quot;MoveMailFolder&quot;).ToString]" MailMessage="[currentItem]" />
                 </Sequence>
               </If.Then>
               <If.Else>
