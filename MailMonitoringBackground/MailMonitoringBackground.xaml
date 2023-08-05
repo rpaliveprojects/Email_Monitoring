@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>786.4,1448.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>786.4,1536.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>MailMonitoringBackground_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -104,7 +104,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MailMonitoringBackground" sap:VirtualizedContainerService.HintSize="572.8,1384" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MailMonitoringBackground" sap:VirtualizedContainerService.HintSize="572.8,1472" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="nkeweofqipqlbuuh" Name="strPassword" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="GetMails" />
@@ -119,8 +119,14 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Mail Move Process Satarted&quot;]" />
-    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" FilterExpression="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[in_dicConfig(&quot;Email&quot;).ToString]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="510.4,24.8" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="False" Messages="[GetMail]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Password="[in_dicConfig(&quot;EmailPassword&quot;).ToString]" Port="[cint(in_dicConfig(&quot;ImapPort&quot;))]" SecureConnection="Auto" Server="[in_dicConfig(&quot;ImapServer&quot;).ToString]" Top="[cint(in_dicConfig(&quot;TopMail&quot;))]" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each - Read mail one by one" sap:VirtualizedContainerService.HintSize="510.4,1024.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[GetMail]">
+    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" FilterExpression="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="To Read Emails&#xD;&#xA;" DeleteMessages="False" DisplayName="Get IMAP Mail Messages- To read Mails" Email="[in_dicConfig(&quot;Email&quot;).ToString]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="510.4,68.8" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="False" Messages="[GetMail]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Password="[in_dicConfig(&quot;EmailPassword&quot;).ToString]" Port="[cint(in_dicConfig(&quot;ImapPort&quot;))]" SecureConnection="Auto" Server="[in_dicConfig(&quot;ImapServer&quot;).ToString]" Top="[cint(in_dicConfig(&quot;TopMail&quot;))]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetIMAPMailMessages>
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="To Read mail one by  one&#xD;&#xA;" DisplayName="For Each - Read mail one by one" sap:VirtualizedContainerService.HintSize="510.4,1068.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[GetMail]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
@@ -132,13 +138,18 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign - Condition for Subject" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap2010:Annotation.AnnotationText="Condition for specific IACET related subject" DisplayName="Assign - Condition for Subject" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Boolean">[bolSubExist]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:Boolean">[currentItem.Subject.Contains(in_dicConfig("Subject").ToString)]</InArgument>
               </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </Assign>
             <If Condition="[bolSubExist]" sap:VirtualizedContainerService.HintSize="433.6,443.2" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
@@ -148,7 +159,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" FromFolder="{x:Null}" SecurePassword="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[in_dicConfig(&quot;Email&quot;).ToString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_1" IgnoreCRL="False" MailFolder="[in_dicConfig(&quot;MailFolder&quot;).ToString]" MailMessage="[currentItem]" Password="[in_dicConfig(&quot;EmailPassword&quot;).ToString]" Port="[cint(in_dicConfig(&quot;ImapPort&quot;))]" SecureConnection="Auto" Server="[in_dicConfig(&quot;ImapServer&quot;).ToString]" />
+                  <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" FromFolder="{x:Null}" SecurePassword="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message - Move mail to IACET folder" Email="[in_dicConfig(&quot;Email&quot;).ToString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_1" IgnoreCRL="False" MailFolder="[in_dicConfig(&quot;MailFolder&quot;).ToString]" MailMessage="[currentItem]" Password="[in_dicConfig(&quot;EmailPassword&quot;).ToString]" Port="[cint(in_dicConfig(&quot;ImapPort&quot;))]" SecureConnection="Auto" Server="[in_dicConfig(&quot;ImapServer&quot;).ToString]" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -169,6 +180,7 @@
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
