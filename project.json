@@ -1,13 +1,14 @@
 {
   "name": "Email_Monitoring",
-  "projectId": "93ccbfd7-6829-4751-87fc-ab56e30da199",
-  "description": "Background Process",
+  "projectId": "a00e4b2e-1ff5-4dca-a2ef-49c6e419b95d",
+  "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.21.0-preview]",
     "UiPath.Mail.Activities": "[1.20.2]",
     "UiPath.System.Activities": "[23.6.0-preview]",
-    "UiPath.WebAPI.Activities": "[1.16.2]"
+    "UiPath.Testing.Activities": "[23.6.0-preview]",
+    "UiPath.UIAutomation.Activities": "[23.6.1-preview]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -19,7 +20,7 @@
     "netFrameworkLazyLoading": false,
     "isPausable": true,
     "isAttended": false,
-    "requiresUserInteraction": false,
+    "requiresUserInteraction": true,
     "supportsPersistence": false,
     "workflowSerialization": "DataContract",
     "excludedLoggedData": [
@@ -43,13 +44,13 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": true
+    "modernBehavior": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "e7e80c51-e551-4628-a90b-53dc8de3106e",
+      "uniqueId": "15fb4e4f-e6fb-40e4-b008-2dcd377840c4",
       "input": [],
       "output": []
     }
