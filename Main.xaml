@@ -99,12 +99,12 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch_EmailMonitoring" sap:VirtualizedContainerService.HintSize="726.6666666666666,3060" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch_EmailMonitoring" sap:VirtualizedContainerService.HintSize="726.6666666666666,4204" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="strStartTime" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence DisplayName="Checking Exception" sap:VirtualizedContainerService.HintSize="604,2820.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Checking Exception" sap:VirtualizedContainerService.HintSize="688,3964.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:Exception" Name="SystemException" />
             <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
@@ -115,7 +115,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="562,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign sap:VirtualizedContainerService.HintSize="646,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[strStartTime]</OutArgument>
             </Assign.To>
@@ -123,9 +123,9 @@
               <InArgument x:TypeArguments="x:String">[Now.ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[strStartTime]" />
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;start Reading outlook mail process&quot;]" />
-          <Assign DisplayName="Checking Exception" sap:VirtualizedContainerService.HintSize="562,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="646,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[strStartTime]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="646,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;start Reading outlook mail process&quot;]" />
+          <Assign DisplayName="Checking Exception" sap:VirtualizedContainerService.HintSize="646,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="s:Exception">[SystemException]</OutArgument>
             </Assign.To>
@@ -133,44 +133,44 @@
               <InArgument x:TypeArguments="s:Exception">[Nothing]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;start reading config file&quot;]" />
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ConfigFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="562,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ConfigFile.xaml">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="646,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;start reading config file&quot;]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ConfigFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="646,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ConfigFile.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
               <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
               <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[Config]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Checking Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="562,25.333333333333332" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[Config(&quot;MailFolder&quot;).ToString]" MarkAsRead="False" Messages="[listMails]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="[Cint(Config(&quot;MailTop&quot;))]" />
-          <ui:LogMessage sap2010:Annotation.AnnotationText="Checking Mails Count" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562,175.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[listMails.Count]">
+          <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Checking Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="646,25.333333333333332" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[Config(&quot;MailFolder&quot;).ToString]" MarkAsRead="False" Messages="[listMails]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="[Cint(Config(&quot;MailTop&quot;))]" />
+          <ui:LogMessage sap2010:Annotation.AnnotationText="Checking Mails Count" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="646,175.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[listMails.Count]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <If Condition="[listMails.Count&gt;0]" sap:VirtualizedContainerService.HintSize="562,1492.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[listMails.Count&gt;0]" sap:VirtualizedContainerService.HintSize="646,2636.6666666666665" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="528,1308.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence sap:VirtualizedContainerService.HintSize="612,2452.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="486,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;New Mail received&quot;]" />
-                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Checking all Mails" DisplayName="For Each (ForEach)" sap:VirtualizedContainerService.HintSize="486,1036.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="570,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;New Mail received&quot;]" />
+                <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Checking all Mails" DisplayName="For Each (ForEach)" sap:VirtualizedContainerService.HintSize="570,2180.6666666666665" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listMails]">
                   <ui:ForEach.Body>
-                    <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction x:TypeArguments="snm:MailMessage">
                       <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="x:Object" Name="currentItem" />
+                        <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="currentItem" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452,846.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="536,1990.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If sap2010:Annotation.AnnotationText="checking subject" Condition="[currentItem.Subject.Contains(Config(&quot;MailSubject&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="410,759.3333333333334" sap2010:WorkflowViewState.IdRef="If_2">
+                        <If sap2010:Annotation.AnnotationText="checking subject" Condition="[currentItem.Subject.Contains(Config(&quot;MailSubject&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="494,1903.3333333333333" sap2010:WorkflowViewState.IdRef="If_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
